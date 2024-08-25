@@ -1,0 +1,367 @@
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Fondo negro */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Header */
+header {
+    background-color: #000000; /* Fondo negro */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* Añade espacio entre el logo y el menú */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 100px; /* Ajustamos la altura del header */
+}
+
+
+/* Centrar el logo */
+.logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px; /* Ajusta esta altura según lo que consideres adecuado */
+    max-width: 100%;
+    height: auto;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a img {
+    height: 24px; /* Ajusta el tamaño de los iconos */
+    vertical-align: middle;
+}
+
+nav ul li a:hover {
+    color: #FF0066; /* Fucsia */
+}
+
+/* Menú desplegable */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a; /* Fondo gris oscuro */
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    padding: 10px 15px;
+    display: block;
+    color: white;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #FF0066; /* Fondo fucsia al hacer hover */
+}
+
+/* Reorganizar elementos del menú */
+nav ul li:nth-child(1) {
+    order: 1; /* Productos */
+}
+
+nav ul li:nth-child(2) {
+    order: 2; /* Contacto */
+}
+
+nav ul li:nth-child(3) {
+    order: 3; /* Inicio */
+}
+
+nav ul li:nth-child(4) {
+    order: 4; /* Búsqueda */
+}
+
+/* Ajuste del icono de búsqueda para mejor alineación */
+.search-icon {
+    display: flex;
+    align-items: center;
+}
+
+/* Barra de Búsqueda */
+.search-bar-container {
+    display: none; /* Oculta la barra de búsqueda inicialmente */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 0;
+    overflow: hidden;
+    background-color: #1a1a1a; /* Fondo gris oscuro */
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease;
+}
+
+.search-bar-container.active {
+    width: 250px; /* Ajusta el tamaño de la barra de búsqueda */
+    padding: 5px 20px;
+}
+
+.search-bar-container input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1a1a1a; /* Fondo gris oscuro */
+    color: white;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar-container input::placeholder {
+    color: #888; /* Color del placeholder */
+}
+
+.search-bar-container input:focus {
+    background-color: #000000; /* Fondo negro al enfocar */
+}
+
+.search-results {
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #1a1a1a; /* Fondo gris oscuro */
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #3a3a3a;
+    transition: background-color 0.2s ease;
+}
+
+.search-results li:hover {
+    background-color: #FF0066; /* Fondo fucsia al hacer hover */
+    cursor: pointer;
+}
+
+/* Vista Inicial de Categorías */
+.categorias {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #131212; /* Gris oscuro */
+    animation: fadeIn 2s ease-in;
+}
+
+.categorias h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #FF0066; /* Fucsia */
+}
+
+.lista-categorias {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.categoria {
+    background-color: #2a2a2a; /* Gris más oscuro */
+    border-radius: 10px;
+    margin: 15px;
+    padding: 20px;
+    width: calc(33% - 30px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.categoria img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.categoria h3 {
+    margin-top: 0;
+    color: #FF0066; /* Fucsia */
+}
+
+.categoria p {
+    color: #CCCCCC; /* Gris claro */
+}
+
+.categoria:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 0, 102, 0.3); /* Sombra fucsia */
+}
+
+.categoria:hover img {
+    transform: scale(1.05);
+}
+
+/* Catálogo */
+.catalogo {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1a1a1a; /* Gris oscuro */
+    animation: fadeInUp 1s ease-in;
+    display: none; /* Ocultamos inicialmente el catálogo */
+}
+
+.catalogo.show {
+    display: block; /* Mostramos el catálogo cuando se selecciona una categoría */
+}
+
+.catalogo h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #FF0066; /* Fucsia */
+}
+
+.productos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.producto {
+    background-color: #2a2a2a; /* Gris más oscuro */
+    border: 1px solid #3a3a3a; /* Borde gris oscuro */
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    width: calc(33% - 40px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.producto h3 {
+    margin-top: 0;
+    color: #FF0066; /* Fucsia */
+}
+
+.producto p {
+    color: #CCCCCC; /* Gris claro */
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 0, 102, 0.3); /* Sombra fucsia */
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a; /* Gris oscuro */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    color: #CCCCCC; /* Gris claro */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lista-categorias, .productos {
+        flex-direction: column;
+    }
+
+    .categoria, .producto {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+        border-radius: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
